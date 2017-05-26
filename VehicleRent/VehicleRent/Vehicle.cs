@@ -25,6 +25,11 @@ namespace VehicleRent
         public bool service_required { get; set; }
 
         // Define other methods
+        public void CalculateFuelEconomy()
+        {
+            fuel_economy = (total_litrespurchased * 100) / total_km_travelled;
+        }
+
         public void AddJourney(double kms)
         {
             Journey newJourney = new Journey(kms);
@@ -33,8 +38,8 @@ namespace VehicleRent
         
         public void AddFuelPurchase(double ltrs)
         {
-            //FuelPurchase newFuelPurchase = new FuelPurchase(ltrs);
-            //fuel_economy 
+            FuelPurchase newFuelPurchase = new FuelPurchase(ltrs);
+            total_litrespurchased += newFuelPurchase.returnlitres_purchased();
         }
 
         public void PrintToScreen(string vehicle_name) // prints variables values to screen
@@ -51,10 +56,9 @@ namespace VehicleRent
                 "\nFuel Economy: " + fuel_economy +
                 "\nService Required: " + service_required);
         }
-        
     }
 }
 
-    // Fuel economy calculation (total_litrespurchased * 100) \ total_km_travelled
+    // Fuel economy calculation 
 
 

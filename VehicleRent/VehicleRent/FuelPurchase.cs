@@ -11,10 +11,16 @@ namespace VehicleRent
         public double litres_purchased { get; set; }
         public double total_cost { get; set; }
         
-        public void calculateFuelCost(double ltrs)
+        public FuelPurchase(double ltrs)
         {
-
-            total_cost += (litres_purchased * 1.30);
+            litres_purchased = ltrs;
+            total_cost = (litres_purchased * 1.30);
+            
+        }
+        
+        public double returnlitres_purchased()
+        {
+            return litres_purchased;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace VehicleRent
         public FormMain()
         {
             InitializeComponent();
+            loadVehicles();
         }
 
         Vehicle[] Vehicles = new Vehicle[3]; // holds the vehicle objects
@@ -35,6 +36,7 @@ namespace VehicleRent
             VehicleTemp.production_date = 2003;
             VehicleTemp.registration = "1 ABC 221";
             VehicleTemp.total_km_travelled = 0;
+            VehicleTemp.total_litrespurchased = 0;
             VehicleTemp.total_services = 0;
             VehicleTemp.fuel_economy = 0;
             VehicleTemp.service_required = false;
@@ -47,6 +49,7 @@ namespace VehicleRent
             VehicleTemp.production_date = 2014;
             VehicleTemp.registration = "1 ABD 760";
             VehicleTemp.total_km_travelled = 0;
+            VehicleTemp.total_litrespurchased = 0;
             VehicleTemp.total_services = 0;
             VehicleTemp.fuel_economy = 0;
             VehicleTemp.service_required = false;
@@ -59,11 +62,19 @@ namespace VehicleRent
             VehicleTemp.production_date = 2003;
             VehicleTemp.registration = "1 ABG 432";
             VehicleTemp.total_km_travelled = 0;
+            VehicleTemp.total_litrespurchased = 0;
             VehicleTemp.total_services = 0;
             VehicleTemp.fuel_economy = 0;
             VehicleTemp.service_required = false;
 
             Vehicles[2] = VehicleTemp; // add to the array
+        }
+
+        private void btn_VehicleDisplay_Click(object sender, EventArgs e)
+        {
+            // Display the currently selected vehicle's specifications
+            Vehicles[cb_Vehicle.SelectedIndex].CalculateFuelEconomy();
+            Vehicles[cb_Vehicle.SelectedIndex].PrintToScreen("Vehicle " + (cb_Vehicle.SelectedIndex + 1));
         }
 
         private void btn_NewJourney_Click(object sender, EventArgs e)
@@ -74,12 +85,14 @@ namespace VehicleRent
                 Vehicles[cb_Vehicle.SelectedIndex].AddJourney(Convert.ToDouble(txt_KmTravelled.Text));
             }
         }
-
-        private void btn_VehicleDisplay_Click(object sender, EventArgs e)
-        {
-            // Display the currently selected vehicle's specifications
-            Vehicles[cb_Vehicle.SelectedIndex].PrintToScreen("Vehicle " + (cb_Vehicle.SelectedIndex + 1));
-        }
         
+        private void btn_NewFuelPurchase_Click(object sender, EventArgs e)
+        {
+            if (txt_KmTravelled.Text != "") // check textbox is not empty
+            {
+                // Runs Vehicle method 
+                Vehicles[cb_Vehicle.SelectedIndex].AddFuelPurchase(Convert.ToDouble(txt_LitresPurchased.Text));
+            }
+        }
     }
 }
