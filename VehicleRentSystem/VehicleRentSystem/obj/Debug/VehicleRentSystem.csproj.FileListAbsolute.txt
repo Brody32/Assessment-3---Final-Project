@@ -1,0 +1,4 @@
+H:\TAFE\Open source and Testing\Assessment Three\VehicleRentSystem\VehicleRentSystem\bin\Debug\VehicleRentSystem.exe.config
+H:\TAFE\Open source and Testing\Assessment Three\VehicleRentSystem\VehicleRentSystem\obj\Debug\VehicleRentSystem.csprojResolveAssemblyReference.cache
+H:\TAFE\Open source and Testing\Assessment Three\VehicleRentSystem\VehicleRentSystem\obj\Debug\VehicleRentSystem.Properties.Resources.resources
+H:\TAFE\Open source and Testing\Assessment Three\VehicleRentSystem\VehicleRentSystem\obj\Debug\VehicleRentSystem.csproj.GenerateResource.Cache
